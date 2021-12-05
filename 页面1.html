@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>星球速递</title>
+</head>
+<body>
+<h3 align="center">星球速递</h3>
+
+<form>
+    <p align="center">颜值：
+        <input type="button" value="↓" onclick="sub1()">
+        <input id="txt1" type="text" readonly="readonly" value=""/>
+        <input type="button" value="↑" onclick="sub2()">
+    </p>
+</form>
+
+<form>
+    <p align="center">武力：
+        <input type="button" value="↓" onclick="sub3()">
+        <input id="txt2" type="text" readonly="readonly" value=""/>
+        <input type="button" value="↑" onclick="sub4()">
+    </p>
+</form>
+
+<form>
+    <p align="center">智力：
+        <input type="button" value="↓" onclick="sub5()">
+        <input id="txt3" type="text" readonly="readonly" value=""/>
+        <input type="button" value="↑" onclick="sub6()">
+    </p>
+</form>
+
+<form>
+    <p align="center">
+        降生星球:<input id="txt4" type="text" readonly="readonly" value=""/>
+    </p>
+</form>
+
+<form>
+    <p align="center">
+        <input type="button" value="随机抽取属性和所在的星球" onclick="sub7()">
+    </p>
+</form>
+
+<form>
+    <p align="center">
+        <input type="button" value="确定" onclick="sub8()">
+    </p>
+</form>
+
+
+</body>
+<script>
+    //属性设置部分
+    var a=document.getElementById("txt1");
+    var b=document.getElementById("txt2");
+    var c=document.getElementById("txt3");
+    var d=document.getElementById("txt4");
+    var num=Math.floor((Math.random()*3));
+    var sum;
+
+
+    function sub1(){
+        if(a.value > 0){
+            a.value = a.value - 1;
+        }
+    }
+    function sub2(){
+        sum=eval(a.value)+eval(b.value)+eval(c.value);
+        if(sum<10){
+            a.value = eval(a.value) + 1;
+        }
+    }
+
+    function sub3(){
+        if(b.value > 0){
+            b.value = b.value - 1;
+        }
+    }
+    function sub4(){
+        sum=eval(a.value)+eval(b.value)+eval(c.value);
+        if(sum<10){
+            b.value = eval(b.value) + 1;
+        }
+    }
+
+    function sub5(){
+        if(c.value > 0){
+            c.value = c.value - 1;
+        }
+    }
+    function sub6(){
+        sum=eval(a.value)+eval(b.value)+eval(c.value);
+        if(sum<10){
+            c.value = eval(c.value) + 1;
+        }
+    }
+
+    function sub7(){
+        a.value = Math.floor((Math.random()*10));
+        b.value = Math.floor((Math.random()*(10-a.value)));
+        c.value =Math.floor((Math.random()*(10-a.value-b.value)));
+        num= Math.floor((Math.random()*3));
+        if(-num==0){
+            d.value ="你出生在α星球";
+        }else if(num==1){
+            d.value ="你出生在β星球";
+        }else{
+            d.value ="你出生在γ星球";
+        }
+
+        sum=eval(a.value)+eval(b.value)+eval(c.value);
+    }
+
+    var i;
+    var j;
+    var array=new Array();
+    for(i=0;i<9;i++){
+        array[i]=new Array();
+        for(j=0;j<2;j++){
+            array[i][j]=new Array();
+        }
+    }
+    //测试
+    for(i=0;i<9;i++){
+        for(j=0;j<2;j++){
+            if(i<3){
+                if(j==0){
+                    array[i][j].push("你收到一份星际快递，是两颗蓝色弹珠，你被其中蕴含的放射性Lex元素感染身亡");
+                    array[i][j].push("整个星际人数达到了巅峰，总部要求清除一半的人口贬至其他星系，你已进入β星球！");
+                    array[i][j].push("在马路上帮助了一名乞丐，没想到乞丐是总统假扮的，因此受到总统的欣赏，一夜成名了");
+                    array[i][j].push("由于科学家对基因的不断改造，人类的智商普遍增长到150以上");
+                    array[i][j].push("你再也不用考试了，因为你已经接受了“知识芯片”实验，所有知识都在你脑子里了");
+                    array[i][j].push("星球上的人每个月都要进行一次考试，但你某次考试忘记填答题卡了");
+                    array[i][j].push("扶了位老奶奶，作为报答，继承了老奶奶家的连锁包子铺，生意兴隆");
+                    array[i][j].push("你考入了军事学校，对教官一件钟情并发起了追求，你们在一起了");
+                    array[i][j].push("你考入了军事学校，成功硕博连读，几年后成为了一名刀客塔");
+                    array[i][j].push("你结婚了，你的另一半挂了，留下亿万家产");
+                    array[i][j].push("你闲来无事做自媒体，你成为了百万粉丝博主");
+                    array[i][j].push("你闲来无事做自媒体，但没坚持几天就放弃了");
+                    array[i][j].push("你发现这个世界只是一个游戏，时间可以倒着流逝");
+                    array[i][j].push("你已经吃腻了高级营养液，你咬咬牙买了几颗青菜改善伙食");
+                    array[i][j].push("你看到了一个大新闻，科学家们让爱因斯坦复活了");
+                    array[i][j].push("克隆技术不断升级，价格终于可以让你备用一整套内脏");
+                    array[i][j].push("你中彩票了");
+                    array[i][j].push("世界上的所有未解之谜被全部解开");
+                    array[i][j].push("扶了位老奶奶，作为报答，继承了老奶奶家的连锁包子铺，生意普通");
+                    array[i][j].push("你考入了军事学校，遭遇敌袭，你掩护了首长撤离");
+                    array[i][j].push("你结婚了，抚养了两个孩子");
+                    array[i][j].push("你结婚了，你的另一半的弟弟是你的前任");
+                    array[i][j].push("你去找工作，成为智能机器人推销员");
+                    array[i][j].push("你去找工作，成为了舰长");
+                    array[i][j].push("你去找工作，在“新东方”修学毕业，成为了一名厨师");
+                    array[i][j].push("你去找工作，在“蓝翔”技术学校修学毕业，成为了开挖掘机的人才");
+                    array[i][j].push("你来到武斗场，你上台挑战，却因为颜艺上了热搜，虽然比赛还是失败了");
+                    array[i][j].push("你来到武斗场，发现宣传广告虚假营销，拨打国际通用热线12315，无果");
+                    array[i][j].push("由于男女比例不平衡，政府承认“一夫一妻”");
+                    array[i][j].push("人们普遍的出行发誓由汽车变为时空隧道");
+                    array[i][j].push("空间从三维的变成了n维");
+                    array[i][j].push("百度成为全星系用户使用量第一的搜索引擎");
+                    array[i][j].push("你结婚了，抚养了两个孩子");
+                }else{
+                    array[i][j].push("你所在的星球被海水席卷");
+                    array[i][j].push("你去找工作，你成为了星际海盗，但很不幸被星际女警抓到了，严刑拷问之下，你供出了接头人");
+                    array[i][j].push("你扶了位老奶奶，作为报答，继承了老奶奶及的连锁包子铺，生意惨淡，倒闭。老奶奶看你经营不善，给你了间健身房");
+                    array[i][j].push("你结婚了，你被PUA了");
+                    array[i][j].push("你结婚了，你的另一半挂了，留下巨额债务");
+                    array[i][j].push("你考入了军事学校，遭遇敌袭，你挂了");
+                    array[i][j].push("你考入了军事学校，对教官一见钟情并发起了追求，但教官看不上你");
+                    array[i][j].push("你考入了军事学校，周末在空教室讲话，被退学了");
+                    array[i][j].push("你考入了军事学校，查寝的时候被抓到带智脑，被张学姐退学了");
+                    array[i][j].push("你考入了军事学校，查寝，人在垃圾桶里，垃圾在床上，被退学了");
+                    array[i][j].push("你结婚了，你崇拜马化腾，你的另一半崇拜马云，两人理念不合，离婚了");
+                    array[i][j].push("你去找工作，结果你没找到");
+                    array[i][j].push("你闲来无事做自媒体，入驻之后，你签约了“深渊”计划，你号没了");
+                    array[i][j].push("你闲来无事做自媒体，被营销号要，你被网暴了");
+                    array[i][j].push("你来到武斗场，上台挑战，因为机甲太low，失败了");
+                    array[i][j].push("两方政治发生分歧，由于站错了队伍，你未来惨遭排挤");
+                    array[i][j].push("太空垃圾过多不断砸向联邦");
+                    array[i][j].push("星系的生育率依旧过低");
+                    array[i][j].push("联邦又不小心让核电站泄露了，反正联邦的人已经变异出了三头六臂");
+
+                }
+//2
+            }else if(i>2&&i<6){
+                if(j==0){
+                    array[i][j].push("你收到一份星际快递，是两颗蓝色弹珠，你被其中蕴含的放射性Lex元素感染身亡");
+                    array[i][j].push("整个星际人数达到了巅峰，总部要求清除一半的人口贬至其他星系，你已进入γ星球！");
+                    array[i][j].push("和α星球的ta网恋，奔现后在一起了");
+                    array[i][j].push("你来到武斗场，对强大的对手，你拔出了“衔珠海皇”，对手大为震惊，你赢了比赛");
+                    array[i][j].push("星球上的人每个月都要进行一次考试，但你某次考试忘记填答题卡了");
+                    array[i][j].push("你考入了军事学校，对教官一件钟情并发起了追求，你们在一起了");
+                    array[i][j].push("你考入了军事学校，成功硕博连读，几年后成为了一名刀客塔");
+                    array[i][j].push("你结婚了，你的另一半挂了，留下千万家产");
+                    array[i][j].push("你去找工作，你成为了星际海盗");
+                    array[i][j].push("你闲来无事做自媒体，你成为了百万粉丝博主");
+                    array[i][j].push("你闲来无事做自媒体，但没坚持几天就放弃了");
+                    array[i][j].push("你已经吃腻了中级营养液，但你没有钱买鸡蛋");
+                    array[i][j].push("你看到了一个大新闻，科学家们让爱因斯坦复活了");
+                    array[i][j].push("克隆技术不断升级，价格终于可以让你备用肝脏、骨髓、心脏");
+                    array[i][j].push("扶了位老奶奶，作为报答，继承了老奶奶家的连锁包子铺，生意普通");
+                    array[i][j].push("你结婚了，抚养了两个孩子");
+                    array[i][j].push("你去找工作，成为智能机器人推销员");
+                    array[i][j].push("你去找工作，在“新东方”修学毕业，成为了一名厨师");
+                    array[i][j].push("你去找工作，在“蓝翔”技术学校修学毕业，成为了开挖掘机的人才");
+                    array[i][j].push("人们普遍的出行发誓由汽车变为时空隧道");
+                    array[i][j].push("空间从三维的变成了n维");
+                    array[i][j].push("百度成为全星系用户使用量第一的搜索引擎");
+                    array[i][j].push("你扶了位老奶奶，作为报答，继承了老奶奶及的连锁包子铺，生意惨淡，倒闭。老奶奶看你经营不善，给你了间健身房");
+                }else{
+                    array[i][j].push("发生了席卷整个星系的黑风暴");
+                    array[i][j].push("你去找工作，你成为了星际海盗");
+                    array[i][j].push("和α星球的ta网恋，奔现后发现是网骗分手了");
+                    array[i][j].push("你扶了位老奶奶，作为报答，继承了老奶奶及的连锁包子铺，生意惨淡，倒闭。老奶奶看你经营不善，给你了间健身房");
+                    array[i][j].push("你结婚了，你被PUA了");
+                    array[i][j].push("你结婚了，你的另一半挂了，留下巨额债务");
+                    array[i][j].push("你中彩票了，但你的邻居们都想找你借钱");
+                    array[i][j].push("你结婚了，你的另一半的弟弟是你的前任");
+                    array[i][j].push("你来到武斗场，你上台挑战，却因为颜艺上了热搜，虽然比赛还是失败了");
+                    array[i][j].push("你来到武斗场，发现宣传广告虚假营销，拨打国际通用热线12315，无果");
+                    array[i][j].push("由于男女比例不平衡，政府承认由于男女比例不平衡，政府承认“一夫一妻”");
+                    array[i][j].push("你考入了军事学校，遭遇敌袭，你挂了");
+                    array[i][j].push("你考入了军事学校，对教官一见钟情并发起了追求，但教官看不上你");
+                    array[i][j].push("你考入了军事学校，周末在空教室讲话，被退学了");
+                    array[i][j].push("你考入了军事学校，查寝的时候被抓到带智脑，被张学姐退学了");
+                    array[i][j].push("你考入了军事学校，查寝，人在垃圾桶里，垃圾在床上，被退学了");
+                    array[i][j].push("你结婚了，你崇拜马化腾，你的另一半崇拜马云，两人理念不合，离婚了");
+                    array[i][j].push("你去找工作，结果你没找到");
+                    array[i][j].push("你闲来无事做自媒体，入驻之后，你签约了“深渊”计划，你号没了");
+                    array[i][j].push("你闲来无事做自媒体，被营销号要，你被网暴了");
+                    array[i][j].push("你来到武斗场，上台挑战，因为机甲太low，失败了");
+                    array[i][j].push("两方政治发生分歧，由于站错了队伍，你未来惨遭排挤");
+                    array[i][j].push("太空垃圾过多不断砸向联邦");
+                    array[i][j].push("星系的生育率一般,联邦又不小心让核电站泄露了，反正联邦的人已经变异出了三头六臂");
+                }
+//3
+            }else{
+                if(j==0){
+                    array[i][j].push("你收到一份星际快递，是两颗蓝色弹珠，你被其中蕴含的放射性Lex元素感染身亡");
+                    array[i][j].push("和α星球的ta网恋，奔现后在一起了");
+                    array[i][j].push("你来到武斗场，对强大的对手，你拔出了“衔珠海皇”，对手大为震惊，你赢了比赛");
+                    array[i][j].push("星球上的人每个月都要进行一次考试，但你某次考试忘记填答题卡了");
+                    array[i][j].push("扶了位老奶奶，作为报答，继承了老奶奶家的连锁包子铺，生意兴隆");
+                    array[i][j].push("你考入了军事学校，成功硕博连读，几年后成为了一名刀客塔");
+                    array[i][j].push("你考入了军事学校，对教官一件钟情并发起了追求，你们在一起了");
+                    array[i][j].push("你去找工作，你成为了星际海盗");
+                    array[i][j].push("你闲来无事做自媒体，你成为了百万粉丝博主");
+                    array[i][j].push("你闲来无事做自媒体，但没坚持几天就放弃了");
+                    array[i][j].push("你已经吃腻低级了营养液，但你没有钱买青菜");
+                    array[i][j].push("你看到了一个大新闻，科学家们让爱因斯坦复活了");
+                    array[i][j].push("克隆技术不断升级，价格终于可以让你备用一颗心脏");
+                    array[i][j].push("你中彩票了，但你被抢劫了");
+                    array[i][j].push("扶了位老奶奶，作为报答，继承了老奶奶家的连锁包子铺，生意普通");
+                    array[i][j].push("你结婚了，抚养了两个孩子");
+                    array[i][j].push("你去找工作，当上了杂货铺收银员");
+                    array[i][j].push("你去找工作，在“新东方”修学毕业，成为了一名厨师");
+                    array[i][j].push("你去找工作，在“蓝翔”技术学校修学毕业，成为了开挖掘机的人才");
+                    array[i][j].push("你来到武斗场，你上台挑战，却因为颜艺上了热搜，虽然比赛还是失败了");
+                    array[i][j].push("你来到武斗场，发现宣传广告虚假营销，拨打国际通用热线12315，无果");
+                    array[i][j].push("由于男女比例不平衡，政府承认“一夫一妻”");
+                    array[i][j].push("人们普遍的出行发誓由汽车变为时空隧道");
+                    array[i][j].push("空间从三维的变成了n维");
+                    array[i][j].push("百度成为全星系用户使用量第一的搜索引擎");
+                    array[i][j].push("你扶了位老奶奶，作为报答，继承了老奶奶及的连锁包子铺，生意惨淡，倒闭。老奶奶看你经营不善，给你了间健身房");
+                    array[i][j].push("你去找工作，结果你没找到");
+                }else{
+                    array[i][j].push("发生了蔓延整个星系的磁暴");
+                    array[i][j].push("你去找工作，你成为了星际海盗");
+                    array[i][j].push("和α星球的ta网恋，奔现后发现是网骗分手了");
+                    array[i][j].push("你扶了位老奶奶，作为报答，继承了老奶奶及的连锁包子铺，生意惨淡，倒闭。老奶奶看你经营不善，给你了间健身房");
+                    array[i][j].push("你结婚了，你被PUA了");
+                    array[i][j].push("你结婚了，你的另一半挂了，留下巨额债务");
+                    array[i][j].push("你考入了军事学校，对教官一见钟情并发起了追求，但教官看不上你");
+                    array[i][j].push("你结婚了，你的另一半的弟弟是你的前任");
+                    array[i][j].push("你考入了军事学校，遭遇敌袭，你挂了");
+                    array[i][j].push("你考入了军事学校，周末在空教室讲话，被退学了");
+                    array[i][j].push("你考入了军事学校，查寝的时候被抓到带智脑，被张学姐退学了");
+                    array[i][j].push("你考入了军事学校，查寝，人在垃圾桶里，垃圾在床上，被退学了");
+                    array[i][j].push("你结婚了，你崇拜马化腾，你的另一半崇拜马云，两人理念不合，离婚了");
+                    array[i][j].push("你结婚了，你被PUA了");
+                    array[i][j].push("你闲来无事做自媒体，入驻之后，你签约了“深渊”计划，你号没了");
+                    array[i][j].push("你闲来无事做自媒体，被营销号要，你被网暴了");
+                    array[i][j].push("你来到武斗场，上台挑战，因为机甲太low，失败了");
+                    array[i][j].push("你被入室抢劫，牺牲了一个管家机器人");
+                    array[i][j].push("两方政治发生分歧，由于站错了队伍，你未来惨遭排挤");
+                    array[i][j].push("太空垃圾过多不断砸向联邦");
+                    array[i][j].push("星系的生育率依旧过高联邦又不小心让核电站泄露了，反正联邦的人已经变异出了三头六臂");
+                }
+
+            }
+
+        }
+    }
+    //输出
+    var symbol;
+    function sub8(){
+        symbol=1;
+        while(symbol==1){
+            xingqu();
+
+        }
+        document.write(content);
+    }
+
+    var content="";
+    function select(i,j){
+        var l;
+        l=array[i][j].length;
+        var w=Math.floor((Math.random()*l));
+        if(w==0){
+            if(i==1||i==0){
+                w=w+2;
+            }
+            if(i==3||i==4){
+                w=w+3;
+            }
+            if(i==6||i==7){
+                w=w+4;
+            }
+        }
+        if(i<7&&j==0&&w==1){
+            if(w==1){
+                num++;
+            }
+        }
+        content=content+"</br>"+array[i][j][w];
+        if(i==2&&w==0){
+            symbol=0;
+        }
+        if(i==5&&w==0){
+            symbol=0;
+        }
+        if(i==8&&w==0){
+            symbol=0;
+        }
+
+    }
+
+    function xingqu(){
+        var star,event;
+        if(num==0){
+            star=0;
+            if(a.value+c.value<=4){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+            star++;
+            if(a.value+b.value<=4){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+            star++;
+            if(b.value+c.value<=4){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+        }
+        if(num==1){
+            star=3;
+            if(a.value+c.value<=6){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+            star++;
+            if(a.value+b.value<=6){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+            star++;
+            if(b.value+c.value<=6){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+        }
+        if(num==2){
+            star=6;
+            if(a.value+c.value<=8){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+            star++;
+            if(a.value+b.value<=8){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+            star++;
+            if(b.value+c.value<=8){
+                select(star,1);
+            }else{
+                select(star,0);
+            }
+        }
+
+
+    }
+
+</script>
+</html>
